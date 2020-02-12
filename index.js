@@ -15,7 +15,7 @@ inquirer.prompt(
         // }
     ]
 ) .then(({username, color}) => {
-    const url = `https://api.github.com/users/${username}`;
+    const url = `https://api.github.com/users/${username}`; 
 
     axios.get(url)
         .then(res => {
