@@ -1,6 +1,14 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const axios = require('axios');
+const convert = require('electron-html-to');
+
+var conversion = convert({
+    converterPath: convert.converters.PDF
+  });
+
+
+
 
 inquirer.prompt(
     [
@@ -19,19 +27,39 @@ inquirer.prompt(
 
     axios.get(url)
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             const name = res.data.login;
             const profileImage = res.data.avatar_url;
             const bio = res.data.bio;
             
-            // console.log(bio);
+            let pdf = '';
 
-            const reposUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
-            axios.get(reposUrl)
+            console.log(name);
+            console.log(profileImage);
+            console.log(bio);
+            console.log(res.data.public_repos, "Public Repos");
+            console.log(res.data.followers, "followers");
+            console.log(res.data.following, "following");
+
+            const starredUrl = `https://api.github.com/users/${username}/starred`;
+            axios.get(starredUrl)
                 .then(repos => {
-                    const repoNum = res.data.length;
-                })
+                    const starNum = repos.data.length;
+                    // console.log('Starred: ' + starNum);
+
+                    pdf = `
+                        
+                    `
+
+
+                    conversion({ html: pdf }, function(err, result) {
+                        if (err) {
+                          return console.error(err);
+                        }
+
+                })    
+                
+            
+            
         })
-
-
 });
