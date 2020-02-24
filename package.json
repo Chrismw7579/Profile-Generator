@@ -1,0 +1,29 @@
+{
+  "name": "Profile-Generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "electron": "^8.0.0",
+    "electron-html-to": "^2.6.0",
+    "fs-extra": "^8.1.0",
+    "inquirer": "^7.0.4",
+    "puppeteer": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrismw7579/Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrismw7579/Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Chrismw7579/Profile-Generator#readme"
+}
