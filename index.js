@@ -21,7 +21,7 @@ inquirer.prompt(
 
     axios.get(url)
         .then(res => {
-            // console.log(res.data);
+            
             const name = res.data.login;
             const profileImage = res.data.avatar_url;
             const bio = res.data.bio;
